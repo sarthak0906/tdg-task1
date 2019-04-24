@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
     if (err) console.log(err);
     
+    console.log('database connected');
     var dbo = database.db('sample');
     require('./app/routes') (app, database);
     
