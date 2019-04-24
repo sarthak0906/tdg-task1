@@ -3,7 +3,7 @@ const MongoClient    = require('mongodb').MongoClient;
 const bodyParser     = require('body-parser');
 const app            = express();
 const db             = require('./config/db');
-const port           = process.env.PORT;
+const port           = process.env.PORT || 3000;
 var cors             = require('cors');
 var nodemailer       = require('nodemailer');
 
