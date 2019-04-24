@@ -1,0 +1,7 @@
+#main_box{
+    border-style: double;
+    border-width: 5px;
+    border-radius: 25px;
+    margin-top: 250px;
+    padding: 50px;
+}

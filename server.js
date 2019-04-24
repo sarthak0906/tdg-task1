@@ -22,6 +22,21 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
         console.log('we are live on '+ port);
     });
 
+    app.get('/populate', (req,res) => {
+        var item = {email : req.query.email, name : req.query.name, pass : req.query.pass, role : req.query.pass, phone : req.query.phone};
+
+        dbo.collection('sample').insertOne(item, (err,rest) => {
+            if (err){
+                console.log(err);
+                res.send('err');
+            }
+            else {    
+                console.log('added');
+                res.send('success');
+            }
+        });
+    });
+
     app.get('/login', (req,res) => {
         dbo.collection("sample").findOne(
             {email : req.query.email}, (err,result) => {
