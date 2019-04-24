@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended : true }));
 
 app.get('/', (req, res) => {
     console.log('this is working');
-    res.send(working);
+    res.send('working');
 })
 
 MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
