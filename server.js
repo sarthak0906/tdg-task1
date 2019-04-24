@@ -28,7 +28,9 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
         console.log('we are live on '+ port);
     });
 
+    app.use(cors());
     app.get('/populate', (req,res) => {
+        app.use(cors());
         var item = {email : req.query.email, name : req.query.name, pass : req.query.pass, role : req.query.pass, phone : req.query.phone};
 
         dbo.collection('sample').insertOne(item, (err,rest) => {
@@ -43,7 +45,9 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
         });
     });
 
+    app.use(cors());
     app.get('/login', (req,res) => {
+        app.use(cors());
         dbo.collection("sample").findOne(
             {email : req.query.email}, (err,result) => {
             if(err){
@@ -59,15 +63,18 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
         })
     });
 
-
+    app.use(cors());
     app.get('/student', (req,res) => {
+        app.use(cors());
         dbo.collection('sample').findOneAndUpdate(
             {email : req.query.email},
             {$set : {email : req.query.email, name : req.query.name, phone : req.query.phone}},
         );
     });
 
+    app.use(cors());
     app.get('/admin', (req,res) => {
+        app.use(cors());
         dbo.collection('sample').findOne(
             {email : req.query.email}, (err, result) => {
                 if (err){
@@ -87,7 +94,7 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
 
                 // var receivers = '';
                 var mailOptions;
-                dbo.collection('sample').find({role : req.query.role}).toArray(function(error, arr){
+                dbo.collection('sample').find({role : req.query.target}).toArray(function(error, arr){
                     if (err){
                         console.log(error);
                         res.send("err");

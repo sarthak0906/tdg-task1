@@ -10,11 +10,11 @@ $(document).ready(()=>{
         }else{
             window.location.replace("./admin.html?mail="+mail.val());
         }
-        $.getJSON("../server/login?mail="+mail.val()+"&pass="+pass.val(),(res)=>{
-            if(res.type == "student"){
-                window.location.replace = "./student.html?mail="+mail.val();
-            }else{
+        $.getJSON("https://tdg-ap.herokuapp.com/login?mail="+mail.val()+"&pass="+pass.val(),(res)=>{
+            if(res.type == "admin"){
                 window.location.replace = "./admin.html?mail="+mail.val();
+            }else{
+                window.location.replace = "./student.html?mail="+mail.val();
             }
         });
     });

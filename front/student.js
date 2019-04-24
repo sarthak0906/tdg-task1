@@ -12,7 +12,7 @@ $(document).ready(()=>{
             enable_edit();
             current = 0;
         }else{
-            $.getJSON("../server/student?name"+$('#name').val()+"&email="+$('#email').val()+"&phone="+$('#phone').val(),(res)=>{
+            $.getJSON("https://tdg-ap.herokuapp.com/student?name"+$('#name').val()+"&email="+$('#email').val()+"&phone="+$('#phone').val(),(res)=>{
                 alert("Changes Applied");
                 disable_edit();
             });
