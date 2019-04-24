@@ -18,7 +18,7 @@ $(document).ready(()=>{
         if(k == "3"){
             target = "student"
         }
-        $.getJSON("https://tdg-ap.herokuapp.com/admin?message="+message+"&target="+target+"&from="+email,(res)=>{
+        $.getJSON("https://tdg-ap.herokuapp.com/admin?body="+message+"&target="+target+"&from="+email,(res)=>{
             alert("Email Sent");
         });
     });
