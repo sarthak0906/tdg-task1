@@ -1,5 +1,5 @@
 module.exports = function(app, db){
-    app.post('/notes', (req,res) => {
+    app.get('/', (req,res) => {
         res.send('hello');
     })
     
