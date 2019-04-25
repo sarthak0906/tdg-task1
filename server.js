@@ -70,12 +70,13 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
         dbo.collection('sample').findOneAndUpdate(
             {email : req.query.email},
             {$set : {email : req.query.email, name : req.query.name, phone : req.query.phone}},
-            (err,res) => {
+            (err,result) => {
                 if (err) {
                     console.log(err);
                     res.send('err');
                 }
                 else{
+                    console.log('result');
                     res.send('success');
                 }
             }
