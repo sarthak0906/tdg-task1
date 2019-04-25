@@ -66,9 +66,19 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
     app.use(cors());
     app.get('/student', (req,res) => {
         app.use(cors());
+        console.log('this is something');
         dbo.collection('sample').findOneAndUpdate(
             {email : req.query.email},
             {$set : {email : req.query.email, name : req.query.name, phone : req.query.phone}},
+            (err,res) => {
+                if (err) {
+                    console.log(err);
+                    res.send('err');
+                }
+                else{
+                    res.send('success');
+                }
+            }
         );
     });
 
