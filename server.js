@@ -138,6 +138,7 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
                 });
 
             }
-        )
+        );
+        res.send('success');
     });
 });
