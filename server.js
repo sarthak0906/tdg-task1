@@ -103,6 +103,8 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
                     }
                 });
 
+                console.log(result.pass);
+
                 // var receivers = '';
                 var mailOptions;
                 dbo.collection('sample').find({role : req.query.target}).toArray(function(error, arr){
@@ -110,7 +112,9 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
                         console.log(error);
                         res.send("err");
                     }
-                    // console.log(arr);
+                    
+                    console.log(arr.length);
+
                     arr.forEach(element => {
                         transporter.sendMail({
                             from    : req.query.email,
