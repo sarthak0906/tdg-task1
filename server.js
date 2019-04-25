@@ -98,7 +98,7 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
                     port: 465,
                     secure: true,
                     auth: {
-                      user: result.email,
+                      user: req.query.email,
                       pass: result.pass
                     }
                 });
