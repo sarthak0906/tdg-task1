@@ -55,7 +55,7 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
                 res.send('error');
             }
 
-            if(req.query.pass != result.pass) res.send('incorrect password');
+            else if(req.query.pass != result.pass) res.send('incorrect password');
 
             else if (result.role == 'admin') res.send('admin');
             else if (result.role == 'student') res.send('student');
