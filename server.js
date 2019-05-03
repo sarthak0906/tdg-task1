@@ -57,9 +57,9 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
 
             if(req.query.pass != result.pass) res.send('incorrect password');
 
-            if (result.role == 'admin') res.send('admin');
-            if (result.role == 'student') res.send('student');
-            if (result.role == 'vol') res.send('vol');
+            else if (result.role == 'admin') res.send('admin');
+            else if (result.role == 'student') res.send('student');
+            else if (result.role == 'vol') res.send('vol');
             else res.send('error');
         })
     });
