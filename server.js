@@ -91,7 +91,7 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
             {email : req.query.email}, (err, result) => {
                 if (err){
                     console.log(err);
-                    res.send('error');
+                    res.send( err + 'error');
                 }
 
                 var transporter  = nodemailer.createTransport({
@@ -107,11 +107,11 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
                 console.log(result.pass);
 
                 // var receivers = '';
-                var mailOptions;
+                // var mailOptions;
                 dbo.collection('sample').find({role : req.query.target}).toArray(function(error, arr){
                     if (err){
                         console.log(error);
-                        res.send("err");
+                        res.send(error + "err");
                     }
                     
                     console.log(arr.length);
