@@ -91,7 +91,7 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
             {email : req.query.email}, (err, result) => {
                 if (err){
                     console.log(err);
-                    res.send( err + 'error');
+                    res.send( err + 'error in find function');
                 }
 
                 var transporter  = nodemailer.createTransport({
