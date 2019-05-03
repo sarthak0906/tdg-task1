@@ -130,7 +130,7 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
                             else{
                                 console.log('send : ' + info.response);
                             }
-                            if (element == arr[arr.length - 1]){
+                            else if (element == arr[arr.length - 1]){
                                 res.send('success');
                             }
                         });
