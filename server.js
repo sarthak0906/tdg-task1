@@ -12,12 +12,12 @@ var nodemailer       = require('nodemailer');
 app.use(cors());
 app.use(bodyParser.urlencoded({extended : true }));
 
-app.get('/', (req, res) => {
-    console.log('this is working');
-    res.send('working');
-})
 
 MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
+    app.get('/', (req, res) => {
+        console.log('this is working');
+        res.send('working');
+    })
     if (err) console.log(err);
     
     console.log('database connected');
