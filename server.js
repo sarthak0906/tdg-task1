@@ -104,6 +104,7 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
                     }
                 });
 
+                console.log(req.query.email);
                 console.log(result.pass);
 
                 // var receivers = '';
