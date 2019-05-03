@@ -4,7 +4,7 @@ $(document).ready(()=>{
     var name = $('#name');
     $('#submit').on('click',(event)=>{
         event.preventDefault();
-        // console.log("asdasd");
+        console.log("res");
         $.getJSON("https://tdg-ap.herokuapp.com/student?email="+mail.val()+"&name="+name.val()+"&phone="+phone.val(),(res)=>{
             console.log(res);
         });
