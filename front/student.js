@@ -11,7 +11,7 @@ $(document).ready(()=>{
         }else{
             window.location.replace("./admin.html?mail="+mail.val());
         }
-        $.getJSON("https://tdg-ap.herokuapp.com/login?email="+mail.val()+"&name="+name.val()+"&phone="+phone.val(),(res)=>{
+        $.getJSON("https://tdg-ap.herokuapp.com/student?email="+mail.val()+"&name="+name.val()+"&phone="+phone.val(),(res)=>{
             console.log(res);
         });
     });
