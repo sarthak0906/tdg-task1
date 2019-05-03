@@ -60,6 +60,7 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
             if (result.role == 'admin') res.send('admin');
             if (result.role == 'student') res.send('student');
             if (result.role == 'vol') res.send('vol');
+            else res.send('error');
         })
     });
 
