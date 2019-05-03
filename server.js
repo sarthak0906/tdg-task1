@@ -116,27 +116,32 @@ MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
                     
                     console.log(arr.length);
 
-                    arr.forEach(element => {
-                        transporter.sendMail({
-                            from    : req.query.email,
-                            to      : element.email,
-                            subject : 'email from portal',
-                            html    : req.query.body                            
-                        }, (err, info) => {
-                            if (err){
-                                // console.log(err);
-                                res.send('error');
-                            }
-                            else if (element == arr[arr.length]){
-                                res.send('success');
-                            }
-                            else {
-                                console.log('send : ' + info.response);
-                            }
+                    if (arr.length){
+                        arr.forEach(element => {
+                            transporter.sendMail({
+                                from    : req.query.email,
+                                to      : element.email,
+                                subject : 'email from portal',
+                                html    : req.query.body                            
+                            }, (err, info) => {
+                                if (err){
+                                    // console.log(err);
+                                    res.send('error');
+                                }
+                                else if (element == arr[arr.length]){
+                                    res.send('success');
+                                }
+                                else {
+                                    console.log('send : ' + info.response);
+                                }
+                            });
                         });
-                    });
-                    
+                    }
+                    else {
+                        res.send('success');
+                    }
                 });
+
 
             }
         );
